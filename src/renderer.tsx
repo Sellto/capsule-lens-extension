@@ -1,5 +1,6 @@
 import { Renderer } from '@k8slens/extensions';
 import * as registries from '@k8slens/extensions/dist/src/extensions/registries';
+import { KubeObjectDetailRegistration } from '@k8slens/extensions/dist/src/renderer/components/kube-object-details/kube-object-detail-registration';
 import React from 'react';
 import { TenantDetails } from './details/tenant';
 import { CustomResourceQuotaPage } from './pages/resource-quotas';
@@ -51,7 +52,7 @@ export default class RendererExtension extends Renderer.LensExtension {
     }
   ];
 
-  kubeObjectDetailItems: registries.KubeObjectDetailRegistration[] = [
+  kubeObjectDetailItems: KubeObjectDetailRegistration[] = [
     {
       kind: Tenant.kind,
       apiVersions: ['capsule.clastix.io/v1alpha1'],

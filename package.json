@@ -1,6 +1,6 @@
 {
   "name": "@clastix/capsule-lens-extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "clastix.io",
   "description": "Capsule Lens Extension",
   "main": "dist/main.js",
@@ -11,10 +11,10 @@
   },
   "license": "Apache-2.0",
   "engines": {
-    "lens": "^5.3.0"
+    "lens": "^6.0.0"
   },
   "devDependencies": {
-    "@k8slens/extensions": "^5.3.4",
+    "@k8slens/extensions": "^6.0.0",
     "@types/node": "^12.18.3",
     "@types/react": "^16.9.35",
     "@types/react-router-dom": "^5.1.7",

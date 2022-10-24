@@ -15,8 +15,8 @@ export type Props = {
 export const Quotas: React.FC<Props> = props => (
   <Renderer.Component.DrawerItem name={props.name} className='quota-list'>
     {Object.keys(props.quotas.hard).map(name => {
-      const used = props.quotas.used[name];
-      const hard = props.quotas.hard[name];
+      const used = props.quotas.used[name] || '';
+      const hard = props.quotas.hard[name] || '';
 
       const current = parseValue(name, used);
       const max = parseValue(name, hard);

@@ -80,10 +80,10 @@ export class AddTenantDialog extends React.Component<Props> {
               onChange={value => this.ownerName = value}
             />
             <b>Owner Kind</b>
-            <Component.Select required
+            <Component.Select
               options={['User', 'Group']}
               value={this.ownerKind}
-              onChange={({ value }) => this.ownerKind = value}
+              onChange={(value) => this.ownerKind = value?.value || 'User'}
             />
           </Component.WizardStep>
         </Component.Wizard>

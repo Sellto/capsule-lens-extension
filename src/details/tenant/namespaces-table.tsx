@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { DrawerTitleToggle } from './drawer-title-toggle';
 
 const { Component, Navigation } = Renderer;
-const {apiManager, namespacesApi} = Renderer.K8sApi;
+const { apiManager, namespacesApi } = Renderer.K8sApi;
 type NamespaceStore = Renderer.K8sApi.NamespaceStore;
 const nsStore: NamespaceStore = (apiManager.getStore(namespacesApi) as NamespaceStore);
 
@@ -18,6 +18,26 @@ export const NamespacesTable: React.FC<Props> = props => {
 
   const rows = props.values.map(name => {
     const ns = nsStore.getByName(name);
+
+    if (!ns) {
+      return (
+        <Component.TableRow nowrap key={name}>
+          <Component.TableCell className='name'>
+            {name}
+          </Component.TableCell>
+          <Component.TableCell className='labels'>
+            -
+          </Component.TableCell>
+          <Component.TableCell className='age'>
+            -
+          </Component.TableCell>
+          <Component.TableCell className='status'>
+            <em>Namespace doesn't exists</em>
+          </Component.TableCell>
+        </Component.TableRow>
+      )
+    }
+
     const age = ns.getAge();
     const status = ns.getStatus();
     const labels = ns.getLabels().map(label => (
